@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>360 Video Tour</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="sky" src="HS_Capture_05.jpg">
+      </a-assets>
+      <a-sky src="#sky"></a-sky>
+      
+      <a-text
+        value="Click on the hotspot to watch a video"
+        position="-1.8 1 -3"
+        color="#000"
+        scale="2 2 2">
+      </a-text>
+      
+      <a-image
+        id="hotspot"
+        src="hotspot.png"
+        position="-1.8 0 -3"
+        scale="0.5 0.5 0.5"
+        look-at="#camera">
+      </a-image>
+      
+      <a-camera id="camera"></a-camera>
+    </a-scene>
+    
+    <script>
+      // When the hotspot is clicked, open a YouTube video in a new window
+      document.getElementById('hotspot').addEventListener('click', function() {
+        window.open('https://www.youtube.com/watch?v=HLWSTb25TyY', '_blank');
+      });
+    </script>
+  </body>
+</html>
